@@ -91,7 +91,7 @@ app.post("/login", async (req, res) => {
 });
 
 app.get("/dashboard", (req, res) => {
-  res.send("Welcome to the dashboard");
+  res.send("Welcome to the dashboard!");
 });
 
 export default app;
