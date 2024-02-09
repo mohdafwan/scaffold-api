@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { connect } from "./config/database.mjs";
 import User from "./model/User.mjs";
-
+import auth from "./middleware/auth.mjs";
 const app = express();
 
 // Middleware
@@ -90,8 +90,8 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/dashboard", (req, res) => {
-  res.send("Welcome to the dashboard!");
+app.get("/dashboard", auth, (req, res) => {
+  res.send("Welcome to the dashboard");
 });
 
 export default app;
